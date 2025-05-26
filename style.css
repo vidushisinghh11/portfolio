@@ -1,0 +1,457 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+:root{
+    --primary-color : rgb(12, 182, 12);
+    --text-color : #ffffff;
+    --bg-dark : #8b1414;
+    --bg-gradient : linear-gradient(45deg, #1a1a1a, #2a3f4a);
+
+}
+body{
+    background : var(--bg-gradient);
+    min-height: 100vh;
+    color: var(--text-color);
+    overflow-x: hidden;
+    
+}
+.navbar{
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, .2);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index:1000;
+    transition: all 0.3 ease;
+
+}
+.logo{
+    display: flex;
+    align-items: center;
+
+}
+.logo img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #4caf50;
+    transition: all 0.3s ease;
+}
+.logo img:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px green;
+
+}
+.nav-links{
+    display:flex;
+    gap: 2rem;
+}
+.nav-links a{
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9 rem;
+    position: relative;
+    padding: 0.5rem 0;
+
+}
+.nav-links a::after{
+    content: "";
+    position: absolute;
+    background: var(--primary-color);
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease;
+}
+.nav-links a:hover::after{
+    width: 100%;
+}
+
+.contact-btn{
+    background: var(--primary-color);
+    color: var(--text-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+}
+.contact-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px green;
+}
+.menu-toggle{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+
+}
+.menu-toggle span{
+    
+    width: 30px;
+    height: 3px;
+    background: var(--text-color);
+    transition: all 0.3s ease;
+}
+.menu-toggle:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 0 85px white;
+
+}
+.hero{
+    display:flex;
+    padding: 15% 5% 5%
+}
+.hero-content{
+    flex:1;
+    position:relative;
+    z-index: 1;
+}
+.hello{
+    color: yellow;
+    font-size: 2.5rem;
+    margin-bottom:1rem;
+    animation: slideIn 1.2s ease;
+}
+.name{
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    animation: slideIn 1.2s ease; 
+
+}
+.title{
+    color:var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    animation: slideIn 1.4s ease; 
+
+}
+@keyframes slideIn{
+    from{
+        opacity:0;
+        transform: translateX(-60px);
+
+    }
+    to{
+        opacity:1;
+        transform: translateX(0);
+    }
+}
+
+
+.description{
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+    animation: fadeIn 2s ease;
+
+     /* max-width: 600px; 
+    margin: 0 auto; 
+    line-height: 1.6; 
+    font-size: 1rem;  */
+     
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0.2;
+    }
+}
+@keyframes moveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+.hire-btn {
+    display: inline-block;
+    background: rgb(23, 215, 23);
+    font-size: 0.75rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation:  moveUpDown 1.5s infinite ease-in-out;
+}
+
+.hire-btn:hover {
+    animation: none;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px green;
+}
+.profile-section{
+    flex: 1;
+    position : relative;
+    display: flex;
+    justify-content: center;
+    animation: fadeIn 2s ease;
+
+}
+.profile-circle{
+    width: 500px;
+    height: 500px;
+    background: #87ceeb;
+    border-radius: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    animation: float-animation 6s ease-in-out infinite;
+    
+}
+.profile-circle img{
+    width: 100%;
+   
+    object-fit: cover;
+
+}
+@keyframes float-animation{
+    0%,
+    100%{
+        transform: translateY(0);
+
+    }
+    50%{
+        transform: translateY(-5px);
+    }
+}
+.skill-icons{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+    transition: all 0.3s ease;
+}
+.skill-icons i{
+    color: #333;
+    transition: color 0.3s ease;
+    
+}
+.skill-icons:hover i{
+    color: rgb(0, 187, 255);
+    cursor: pointer;
+}
+.skill-icons:hover{
+    transform: scale(1.1);
+}
+.ps-icon{
+    top: 10%;
+    left: 0;
+    animation: slideIn 2.2s ease;
+}
+.ai-icon{
+    top: 10%;
+    right: 0;
+    animation: slideIn 2.4s ease;
+}
+.ui-icon{
+    bottom: 10%;
+    right: 0;
+    animation: slideIn 2.6s ease;
+}
+.in-icon{
+    bottom: 10%;
+    left: 0;
+    animation: slideIn 2.8s ease;
+}
+.stats{
+    position: absolute;
+    bottom: 10;
+    left: 50%;
+    transform: translateX(-50%) ;
+    background: white;
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    display: flex;
+    align-content: center;
+    gap: 0.5rem;
+    animation: slideUp 2.6s ease;
+}
+@keyframes slideUp {
+    from{
+        opacity: 0;
+        transform: translate(-50%,20px);
+
+    }
+    to{ 
+        opacity: 1;
+        transform: translate(-50%,0);
+    }
+
+    
+}
+@media (max-width:768px){
+    .nav-links{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        transition: right 0.3s ease;
+        background: rgba(0, 0, 0, .85);
+    }
+    .nav-links.open{
+        right: 0;
+    }
+    .logo img{
+        width: 40px;
+        height: 40px;
+
+    }
+    .hero{
+        flex-direction: column;
+        text-align: center;
+        padding: 100px;
+
+    }
+    .name{
+        font-size: 2.5rem;
+
+    }
+    .profile-circle{
+        width: 200px;
+        height: 200px;
+    }
+    .menu-toggle{
+        display: flex;
+    }
+    .menu-toggle.active span:nth-child(1){
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+    .menu-toggle.active span:nth-child(2){
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3){
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+}
+
+
+
+/* skill section */
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+.skills-section {
+    padding: 50px;
+    
+    text-align: center;
+}
+
+.skills-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skill-card {
+    display: inline-block;
+    width: 120px;
+    margin: 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(-60px); /* Start off-screen */
+    animation: slideIn 1s ease forwards;
+}
+
+
+.skill-card.reveal {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.skill-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.skill-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.skill-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+/* Continue as needed */
+
+
+
+
+.skill-card i {
+    color: #4CAF50;
+}
+
+.skill-card h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+
+
+
+/* footer section */
+
+.footer-section {
+    padding: 50px 20px;
+   
+    color:  var(--primary-color);
+    text-align: center;
+    margin-top: 100px;
+    border-top: 2px solid var(--bg-gradient);
+    animation: fadeIn 2s ease;
+}
+
+.footer-section a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+
+
+.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
